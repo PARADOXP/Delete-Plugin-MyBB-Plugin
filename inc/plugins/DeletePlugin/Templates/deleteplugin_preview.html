@@ -1,0 +1,57 @@
+<form id="delete_plugin_form" method="post" action="index.php?module=config-plugins&amp;action=do_delete">
+<input type="hidden" name="my_post_key" value="{$mybb->post_code}" />
+<input type="hidden" name="plugin" value="{$delete_plugin_codename_raw}" />
+<table class="general delete_plugin_table">
+    <thead>
+        <tr>
+            <th width="30"><input type="checkbox" id="delete_plugin_select_all" title="{$lang->delete_plugin_select_all}" checked="checked" /></th>
+            <th>{$delete_plugin_plugin_name}</th>
+            <th width="220">{$lang->delete_plugin_column_note}</th>
+            <th style="text-align: right;" width="90">{$lang->delete_plugin_column_size}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="4">
+                <ul class="delete_plugin_stats">
+                    <li><strong>{$lang->delete_plugin_stat_files}</strong><span>{$delete_plugin_file_count}</span></li>
+                    <li><strong>{$lang->delete_plugin_stat_size}</strong><span>{$delete_plugin_total_size}</span></li>
+                    <li><strong>{$lang->delete_plugin_stat_mode}</strong><span>{$delete_plugin_mode}</span></li>
+                    <li class="last"><strong>{$lang->delete_plugin_stat_codename}</strong><span>{$delete_plugin_codename}</span></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="delete_plugin_hint">
+                {$lang->delete_plugin_folders_label}
+                <ul class="delete_plugin_folders">{$delete_plugin_folders}</ul>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="delete_plugin_hint">
+                <strong>{$lang->delete_plugin_included_label}</strong> {$delete_plugin_included_summary}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="delete_plugin_warning">{$lang->delete_plugin_warning}</td>
+        </tr>
+        <tr>
+            <td colspan="4" class="delete_plugin_actions">
+                <label><input type="checkbox" name="confirm" value="1" /> {$lang->delete_plugin_confirm}</label><br />
+                <label><input type="checkbox" name="run_uninstall" value="1"{$delete_plugin_run_uninstall} /> {$lang->delete_plugin_option_uninstall}</label><br />
+                <label><input type="checkbox" name="remove_data" value="1"{$delete_plugin_remove_data} /> {$lang->delete_plugin_option_data}</label><br />
+                <label><input type="checkbox" name="prune_folders" value="1"{$delete_plugin_prune_folders} /> {$lang->delete_plugin_option_folders}</label>
+                <div class="delete_plugin_submit">
+                    <button type="submit" class="submit_button">{$lang->delete_plugin_delete_files}</button>
+                </div>
+                <div class="delete_plugin_links">{$delete_plugin_settings_link} &middot; {$delete_plugin_plugins_link}</div>
+            </td>
+        </tr>
+        <tr>
+            <th colspan="4">{$lang->delete_plugin_included_label} ({$delete_plugin_file_count})</th>
+        </tr>
+{$delete_plugin_file_rows}
+    </tbody>
+</table>
+</form>
+{$delete_plugin_skipped_table}

@@ -1,0 +1,81 @@
+{
+  "group": {
+    "name": "delete_plugin",
+    "title": "Delete Plugin Settings",
+    "description": "Control how the Delete Plugin finds the files of a plugin before they are removed."
+  },
+  "settings": [
+    {
+      "name": "scan_mode",
+      "title": "Scan Mode",
+      "description": "Balanced: every file owned by the plugin folder is found, plus name-matched files whose content really references the plugin. Strict: only the plugin folder plus files that plugin code actually loads (require/include) are found.",
+      "optionscode": "select\nbalanced=Balanced (verified names)\nstrict=Strict (ownership only)",
+      "value": "balanced",
+      "disporder": "1"
+    },
+    {
+      "name": "excluded_paths",
+      "title": "Protected Paths",
+      "description": "One path per line, relative to the forum root. A folder entry protects the whole tree. Wildcards are allowed (for example uploads/* or *.log). Protected paths are never deleted, whatever plugin code says.",
+      "optionscode": "textarea",
+      "value": "inc/plugins/temp\nBackup Plugins\nadmin/backups\nuploads\n.git\nnode_modules",
+      "disporder": "2"
+    },
+    {
+      "name": "included_paths",
+      "title": "Extra Paths To Delete",
+      "description": "One path per line, relative to the forum root. These folders or files are always treated as part of the plugin even when they live outside the plugin folder. Use it when a plugin keeps assets or admin pages somewhere else.",
+      "optionscode": "textarea",
+      "value": "",
+      "disporder": "3"
+    },
+    {
+      "name": "include_root_scripts",
+      "title": "Include Root Scripts",
+      "description": "Find entry scripts placed in the forum root (for example sw.js or store.php) when they really belong to the plugin. A file must reference the plugin folder or use the plugin prefix. Leave this off to keep deletion limited to the plugin area.",
+      "optionscode": "yesno",
+      "value": "0",
+      "disporder": "4"
+    },
+    {
+      "name": "max_file_size",
+      "title": "Maximum File Size (KB)",
+      "description": "Never delete a single file larger than this size in kilobytes. Set to 0 to allow every file. The plugin entry file is always listed, whatever its size.",
+      "optionscode": "numeric",
+      "value": "0",
+      "disporder": "5"
+    },
+    {
+      "name": "show_skipped",
+      "title": "Show Protected Files",
+      "description": "List the files that will be left on disk, together with the reason each one is kept.",
+      "optionscode": "yesno",
+      "value": "1",
+      "disporder": "6"
+    },
+    {
+      "name": "run_uninstall",
+      "title": "Run Uninstall By Default",
+      "description": "Pre-tick the \"Run the plugin uninstall routine\" box on the scan page. The uninstall routine removes database tables and other data the plugin created.",
+      "optionscode": "yesno",
+      "value": "1",
+      "disporder": "7"
+    },
+    {
+      "name": "remove_data",
+      "title": "Remove Templates And Settings By Default",
+      "description": "Pre-tick the box that removes the plugin template groups and settings groups through PluginLibrary after the files are gone.",
+      "optionscode": "yesno",
+      "value": "1",
+      "disporder": "8"
+    },
+    {
+      "name": "prune_folders",
+      "title": "Remove Empty Folders By Default",
+      "description": "Pre-tick the box that removes the plugin folders once every file inside them is gone.",
+      "optionscode": "yesno",
+      "value": "1",
+      "disporder": "9"
+    }
+  ]
+}
