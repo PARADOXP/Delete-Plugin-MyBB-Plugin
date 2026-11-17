@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">Delete Plugin for MyBB</title>
+  <desc id="desc">A MyBB admin tool that scans plugin files, previews accepted and protected files, and removes only selected items.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101827"/>
+      <stop offset="1" stop-color="#172b42"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff826e"/>
+      <stop offset="1" stop-color="#ef476f"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#07101d" flood-opacity=".35"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="420" rx="28" fill="url(#bg)"/>
+  <circle cx="1090" cy="40" r="210" fill="#244361" opacity=".28"/>
+  <circle cx="1010" cy="420" r="230" fill="#263a59" opacity=".22"/>
+  <g fill="none" stroke="#8aa5bf" stroke-opacity=".15">
+    <path d="M0 340 350 0M120 420 540 0M780 420 1200 0"/>
+    <path d="M0 90h1200M0 180h1200M0 270h1200M180 0v420M360 0v420M540 0v420M720 0v420M900 0v420"/>
+  </g>
+  <g font-family="Inter,Segoe UI,Arial,sans-serif">
+    <rect x="72" y="70" width="180" height="34" rx="17" fill="#203c56"/>
+    <circle cx="92" cy="87" r="5" fill="#52d6a1"/>
+    <text x="108" y="92" fill="#b9cddd" font-size="13" font-weight="700" letter-spacing="1.5">MYBB ADMIN CP</text>
+    <text x="72" y="173" fill="#f4f7fb" font-size="48" font-weight="750" letter-spacing="-1.6">Delete Plugin</text>
+    <text x="72" y="218" fill="#c1cfdd" font-size="20">Know what belongs. Review every file. Choose what to remove.</text>
+    <g font-size="14" font-weight="650">
+      <rect x="72" y="267" width="142" height="38" rx="19" fill="#203c56"/>
+      <text x="93" y="291" fill="#d5e5f4">SCAN &amp; VERIFY</text>
+      <rect x="226" y="267" width="145" height="38" rx="19" fill="#203c56"/>
+      <text x="248" y="291" fill="#d5e5f4">PREVIEW FILES</text>
+      <rect x="383" y="267" width="165" height="38" rx="19" fill="#203c56"/>
+      <text x="405" y="291" fill="#d5e5f4">CONFIRM TO DELETE</text>
+    </g>
+    <text x="72" y="366" fill="#8299af" font-size="14" font-weight="600" letter-spacing="1">MYBB 1.8.x  ·  PHP 7.0+</text>
+  </g>
+  <g filter="url(#shadow)" transform="translate(744 78)">
+    <rect width="382" height="270" rx="18" fill="#f7f9fc"/>
+    <path d="M18 0h346a18 18 0 0 1 18 18v34H0V18A18 18 0 0 1 18 0Z" fill="#eaf0f6"/>
+    <circle cx="23" cy="26" r="5" fill="#a9b8c8"/>
+    <circle cx="41" cy="26" r="5" fill="#a9b8c8"/>
+    <circle cx="59" cy="26" r="5" fill="#a9b8c8"/>
+    <text x="82" y="31" fill="#43566a" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="700">PLUGIN FILE REVIEW</text>
+    <rect x="22" y="72" width="338" height="37" rx="8" fill="#e9f8f1"/>
+    <circle cx="42" cy="90" r="8" fill="#25ad79"/>
+    <path d="m38 90 3 3 5-6" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="60" y="94" fill="#294d3f" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="650">plugin_helper.php</text>
+    <text x="298" y="94" fill="#648072" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11">verified</text>
+    <rect x="22" y="118" width="338" height="37" rx="8" fill="#e9f8f1"/>
+    <circle cx="42" cy="136" r="8" fill="#25ad79"/>
+    <path d="m38 136 3 3 5-6" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="60" y="140" fill="#294d3f" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="650">languages/english/helper.lang.php</text>
+    <text x="298" y="140" fill="#648072" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11">owned</text>
+    <rect x="22" y="164" width="338" height="37" rx="8" fill="#fff1ed"/>
+    <circle cx="42" cy="182" r="8" fill="#f07861"/>
+    <path d="M42 178v5m0 3v.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+    <text x="60" y="186" fill="#62463f" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="650">inc/plugins/pluginlibrary.php</text>
+    <text x="298" y="186" fill="#9a675d" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11">protected</text>
+    <rect x="22" y="221" width="338" height="30" rx="8" fill="url(#accent)"/>
+    <path d="M155 230h12v12h-12zM158 227h12v12" fill="none" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/>
+    <text x="178" y="241" fill="#fff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="700">REVIEW BEFORE REMOVING</text>
+  </g>
+</svg>
