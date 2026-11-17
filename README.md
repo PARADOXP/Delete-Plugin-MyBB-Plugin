@@ -2,6 +2,10 @@
 
 An Admin CP helper that removes a MyBB plugin together with the files that actually belong to it. Instead of asking you to delete a folder by hand, it scans the forum, shows every file it believes belongs to the plugin, explains why, and deletes only the rows you tick.
 
+<p align="center">
+  <img src=".github/delete-plugin-cover.svg" alt="Delete Plugin for MyBB cover image" width="1200" />
+</p>
+
 - **Version:** 1.0.0
 - **Codename:** `delete_plugin`
 - **Compatibility:** MyBB 1.8.x (`18*`)
@@ -168,7 +172,7 @@ These are properties of the current source, documented rather than fixed.
 
 ### Scanner correctness
 
-1. **The scanner executes the target plugin.** `delete_plugin_get_plugin_info()` does `require_once` on `inc/plugins/<codename>.php` so it can call `<codename>_info()`. Any top-level code in that plugin runs on the ACP page. A plugin that calls `exit`/`die`, redirects, or assumes front-end globals can abort or corrupt the scan. Only `Throwable` is caught; `exit` is not.
+1. **The scanner executes the target plugin.** `delete_plugin_get_plugin_info()` does `require_once` on `inc/plugins/<codename>.php` so it can call `<codename>_info()`. Any top-level code in that plugin runs on the ACP page. A plugin that calls `exit` / `die`, redirects, or assumes front-end globals can abort or corrupt the scan. Only `Throwable` is caught; `exit` is not.
 2. **All of `jscripts/` is treated as core.** `delete_plugin_is_core_path()` blocks the whole `jscripts/` tree, so plugin JavaScript placed there is never removable, even when the plugin owns it.
 3. **The core list is incomplete.** `newthread.php`, `xmlhttp.php`, `polls.php`, `editpost.php`, `inc/settings.php` and several other root/core scripts are missing from `$core_files` / `$core_dirs`. They are only protected if another rule happens to match.
 4. **Extra Paths bypass the folder guard.** Directories in *Extra Paths To Delete* are walked with `delete_plugin_walk()` instead of `delete_plugin_add_folder()`, so ownership and core checks are skipped where the files are accepted. The preview can therefore list core files that `delete_plugin_safe_file()` refuses to unlink later, which makes the reported deletion count differ from reality without warning.
@@ -191,7 +195,7 @@ These are properties of the current source, documented rather than fixed.
 ### ACP integration
 
 17. **Missing route file is fatal.** `delete_plugin_admin_load()` returns when `Admin/preview.php` is absent; MyBB then tries to include `admin/modules/config/delete_plugin.php`, which does not exist. The action handler also declares `delete_plugin.php` as the action file even though the plugin always intercepts the request.
-18. **CSS and JS are printed as raw tags after the ACP header**, bypassing the template-only asset rule used elsewhere in this project. The CSS is additionally registered in the PluginLibrary stylesheet cache with `admin/*.php`, which the Admin CP does not read, so the file is registered and also hard-linked — effectively duplicated configuration.
+18. **CSS and JS are printed as raw tags after the ACP header**, bypassing the template-only asset rule used elsewhere in this project. The CSS is additionally registered in the PluginLibrary stylesheet cache with `admin/*`, which the Admin CP does not read, so the file is registered and also hard-linked — effectively duplicated configuration.
 19. **Language file reload per row.** `delete_plugin_reason_label()` and `delete_plugin_skip_label()` call `$lang->load('delete_plugin')` on every invocation, which means one include attempt per rendered row.
 20. **Template-edit cleanup depends on the target plugin.** Core template changes are only reverted if the target plugin's own `_deactivate()` calls `find_replace_templatesets()`. The Delete Plugin does not revert them itself.
 
